@@ -1,21 +1,25 @@
 <template>
   <div class="container">
-    <button class="mb-12 text-white btn btn-primary">
+    <div class="wrap flex m-10">
+      <formulateInput name="test" label="label" placeholder="placeholder" type="text" help="help" error="error"/>
+    </div>
+    <v-select :options="['Canada', 'United States']"></v-select>
+    <button class="mb-12 btn btn-primary">
       admin
     </button>
-    <button class="mb-12 text-white btn btn-secondary">
+    <button class="mb-12 btn btn-secondary">
       admin
     </button>
-    <button class="mb-12 text-white btn btn-success">
+    <button class="mb-12 btn btn-success">
       admin
     </button>
-    <button class="mb-12 text-white btn btn-info">
+    <button class="mb-12 btn btn-info">
       admin
     </button>
-    <button class="mb-12 text-white btn btn-danger">
+    <button class="mb-12 btn btn-danger">
       admin
     </button>
-    <button class="mb-12 text-white btn btn-warning">
+    <button class="mb-12 btn btn-warning">
       admin
     </button>
   </div>

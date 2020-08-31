@@ -34,8 +34,9 @@ export default {
    ** Global CSS
    */
   css: [
-    '@/node_modules/@braid/vue-formulate/themes/snow/snow.scss',
+    // '@/node_modules/@braid/vue-formulate/themes/snow/snow.scss',
     '@/assets/scss/styles.scss',
+    '@/node_modules/vue-select/dist/vue-select.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -44,7 +45,10 @@ export default {
   plugins: [
     {
       src: '@/plugins/vue-formulate'
-    }
+    },
+    {
+      src: '@/plugins/vue-select'
+    },
   ],
   /*
    ** Auto import components
