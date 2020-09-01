@@ -41,8 +41,11 @@
     input {
       // Style all text-like input elements
       @apply shadow rounded text-sm p-2 rounded text-opacity-75;
-      &:focus {
+      &:hover {
         @apply shadow-md text-opacity-100;
+      }
+      &:focus {
+        @apply shadow-lg text-opacity-100;
       }
     }
   }
@@ -62,6 +65,13 @@
   &[data-classification='textarea'] {
     textarea {
       // Style textareas
+      @apply shadow rounded text-sm p-2 rounded text-opacity-75 h-24 min-h-full;
+      &:hover {
+        @apply shadow-md text-opacity-100;
+      }
+      &:focus {
+        @apply shadow-lg text-opacity-100;
+      }
     }
   }
 
