@@ -3,11 +3,11 @@
 }
 
 #app {
-  @apply w-full h-screen overflow-y-auto;
+  @apply w-full h-screen overflow-y-auto flex;
 }
 
 #main {
-  @apply p-4;
+  @apply flex-1 p-4;
 }
 
 .container {
