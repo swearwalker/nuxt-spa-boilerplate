@@ -3,7 +3,7 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'spa',
+  ssr: false,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -25,10 +25,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
-      },
+        content: process.env.npm_package_description || ''
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
    ** Global CSS
@@ -36,7 +36,7 @@ export default {
   css: [
     // '@/node_modules/@braid/vue-formulate/themes/snow/snow.scss',
     '@/assets/scss/styles.scss',
-    '@/node_modules/vue-select/dist/vue-select.css',
+    '@/node_modules/vue-select/dist/vue-select.css'
   ],
   /*
    ** Plugins to load before mounting the App
@@ -49,6 +49,9 @@ export default {
     {
       src: '@/plugins/vue-select'
     },
+    {
+      src: '@/services/inject.service'
+    }
   ],
   /*
    ** Auto import components
@@ -64,7 +67,7 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Nuxt.js modules
@@ -83,13 +86,15 @@ export default {
     // Doc: https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
     // Doc: https://www.npmjs.com/package/vue-toastification
-    "vue-toastification/nuxt",
+    'vue-toastification/nuxt'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  // axios: {
+  //   baseURL: process.env.BASE_API
+  // },
   /*
   /*
    ** Axios module configuration
@@ -100,7 +105,7 @@ export default {
     maxToasts: 5,
     newestOnTop: true,
     position: 'bottom-center',
-    timeout: 5000,
+    timeout: 5000
   },
   /*
    ** Content module configuration
@@ -121,7 +126,7 @@ export default {
    */
   svgSprite: {
     input: '~/static/icons',
-    output: '~/static/sprite',
+    output: '~/static/sprite'
   },
   /*
    ** Tailwindcss module configuration
@@ -135,24 +140,24 @@ export default {
    ** See https://dev.auth.nuxtjs.org/guide/scheme
    */
   auth: {
-    // strategies: {
-    //   local: {
-    //     token: {
-    //       property: 'token',
-    //       // required: true,
-    //       // type: 'Bearer'
-    //     },
-    //     user: {
-    //       property: 'user',
-    //       // autoFetch: true
-    //     },
-    //     endpoints: {
-    //       login: { url: '/api/auth/login', method: 'post' },
-    //       logout: { url: '/api/auth/logout', method: 'post' },
-    //       user: { url: '/api/auth/user', method: 'get' }
-    //     }
-    //   }
-    // }
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          required: true,
+          type: ''
+        },
+        user: {
+          property: false,
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/auth/login', method: 'post' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/auth/user', method: 'get' }
+        }
+      }
+    }
   },
   /*
    ** i18n configuration
@@ -193,17 +198,17 @@ export default {
   build: {
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
-        config.devtool = 'source-map';
+        config.devtool = 'source-map'
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
+          exclude: /(node_modules)/
+        })
       }
-    },
+    }
   },
-  // router: {
-  //   middleware: ['auth']
-  // }
+  router: {
+    middleware: ['auth']
+  }
 }

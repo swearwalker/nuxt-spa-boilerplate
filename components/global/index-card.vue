@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Card',
+  name: 'IndexCard',
   props: {
     data: {
       type: Object,
